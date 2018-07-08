@@ -12,7 +12,7 @@ var roleBuilder = {
         }
         
         // if we're not building and have full energy, and have targets, lets build!
-        else if(!creep.memory.building && creep.carry.energy == creep.carryCapacity && targets.length > 0) {
+        else if(!creep.memory.building && (creep.carry.energy == creep.carryCapacity) && targets.length > 0) {
             creep.memory.building = true;
         }
         

@@ -4,6 +4,7 @@ var roleBuilder = require('role.builder.1.0');
 var spawnManager = require('spawn_manager');
 var recoverLost = require('recover_lost');
 
+
 module.exports.loop = function () {
     spawnManager.run();
     //var controller = _.filter(Game.structures, (structure) => structure.structureType == STRUCTURE_CONTROLLER);

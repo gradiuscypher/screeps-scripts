@@ -2,8 +2,8 @@ var spawnManager = {
     run: function() {
         // set values
         var MAX_UPGRADER = 3;
-        var MAX_HARVESTER = 3;
-        var MAX_BUILDERS = 1;
+        var MAX_HARVESTER = 4;
+        var MAX_BUILDERS = 2;
 
         //clean up garbage memory
         for(var name in Memory.creeps) {
