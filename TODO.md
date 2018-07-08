@@ -1,7 +1,8 @@
 # TODO
 
 ### Critical
-* Role juggling for all roles
+* more specialized workers (heavy harvesters)
+* Role juggling for all roles - kind of done
 * Repair bot
 * Using storage containers
 

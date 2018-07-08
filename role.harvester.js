@@ -7,7 +7,7 @@ var roleHarvester = {
     run: function(creep) {
         // BUG: there's some way the bot gets stuck in building:true that we need to avoid
         if(creep.memory.building) {
-            // roleBuilder.run(creep);
+            roleBuilder.run(creep);
         }
         else {
             if(creep.carry.energy < creep.carryCapacity) {
@@ -31,7 +31,7 @@ var roleHarvester = {
                     }
                 }
                 else {
-                    // roleBuilder.run(creep);
+                    roleBuilder.run(creep);
                 }
             }
         }
