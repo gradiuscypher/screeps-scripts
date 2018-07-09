@@ -1,4 +1,5 @@
 // version 0.1
+// meant to be immobile miner
 
 var roleHeavyMiner = {
 

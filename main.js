@@ -1,7 +1,7 @@
 var roleHarvester = require('role.harvester.1.0');
 var roleUpgrader = require('role.upgrader.1.0');
 var roleBuilder = require('role.builder.1.0');
-var roleRepairer = require('role.repairer')
+var roleTransporter = require('role.transporter');
 
 var spawnManager = require('spawn_manager');
 var combatManager = require('combat_manager');
@@ -17,6 +17,7 @@ module.exports.loop = function () {
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         recoverLost.run(creep);
+        // roleTransporter.run(creep);
 
         if(!creep.memory.lost) {
             if(creep.memory.role == 'harvester') {
@@ -27,6 +28,9 @@ module.exports.loop = function () {
             }
             if(creep.memory.role == 'builder') {
                 roleBuilder.run(creep);
+            }
+            if(creep.memory.role == 'transporter') {
+                roleTransporter.run(creep);
             }
         }
     }

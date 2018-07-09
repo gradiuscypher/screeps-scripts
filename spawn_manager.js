@@ -1,4 +1,5 @@
 // version 0.1
+// manages all respawning
 
 var spawnManager = {
     run: function() {
@@ -6,7 +7,7 @@ var spawnManager = {
         const MAX_HEAVY_MINERS = 0;
         const MAX_UPGRADER = 1;
         const MAX_HARVESTER = 3;
-        const MAX_BUILDERS = 1;
+        const MAX_BUILDERS = 3;
 
         //clean up garbage memory
         for(var name in Memory.creeps) {

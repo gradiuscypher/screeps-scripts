@@ -1,4 +1,5 @@
 // version 0.1
+// repairs damaged structures
 
 var roleRepairer = {
 
@@ -18,7 +19,7 @@ var roleRepairer = {
             creep.memory.working = true;
         }
 
-        // if we're actually building already, and we have targets, keep building!
+        // if we're actually repairing already, and we have targets, keep repairing!
         if(creep.memory.repairing) {
             if(target) {
                 if(creep.repair(target) == ERR_NOT_IN_RANGE) {

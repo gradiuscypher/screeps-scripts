@@ -3,16 +3,18 @@
 ### Critical
 * Job role re-write
 * ~~Role juggling for all roles - kind of done~~ done, keep an eye out 
-* Repair bot
-* Using storage containers
+* ~~Repair bot~~ - first iteration complete
+* ~~Using storage containers~~ - can now use `role.transporter` to move from containers to storage
 * bug in spawning code could lead to not enough harvesters which will prevent everything else from spawning.
   * need to manage multiple tiers of harvesters to ensure something simple can always spawn
+  * I think this was triggered by an invasion
 
 ### Important
 * move spawn logic to each of the role files
 * Multi-room future?
 
 ### Helpful
+* need someone to clean up dropped energy from things like invaders
 
 ### For Fun
 * Random names rather than time-based
