@@ -59,6 +59,7 @@ var spawnManager = {
                 for(var miner of heavy_miners) {
                     USED_SOURCES.push(miner.memory.targetSource);
                 }
+                // TODO: ensure that we're moving to the target source, and standing on the container
                 for(var tSource of ALL_SOURCES) {
                     console.log(tSource.id);
                     if(!USED_SOURCES.includes(tSource.id)) {
