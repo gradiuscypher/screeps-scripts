@@ -1,4 +1,5 @@
 var roleUpgrader = require('role.upgrader.1.0');
+var roleRepairer = require('role.repairer');
 
 var roleBuilder = {
 
@@ -26,7 +27,7 @@ var roleBuilder = {
         }
         
         // if we're a builder, find the builder sources and harvest
-        else if(creep.memory.role == 'builder' && creep.carry.energy < creep.carryCapacity) {
+        else if(creep.memory.role == 'builder' && creep.carry.energy < creep.carryCapacity && !(creep.memory.repairing)) {
             var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
@@ -34,7 +35,7 @@ var roleBuilder = {
         }
 
         else {
-            roleUpgrader.run(creep);
+            roleRepairer.run(creep);
         }
     }
 };

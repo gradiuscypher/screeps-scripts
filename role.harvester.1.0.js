@@ -6,7 +6,7 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
         // check to see if the creep has energy stored, if not, harvest till energy is full
-        if(creep.carry.energy < creep.carryCapacity && !(creep.memory.building)) {
+        if(creep.carry.energy < creep.carryCapacity && !(creep.memory.building || creep.memory.repairing)) {
             var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
@@ -19,7 +19,7 @@ var roleHarvester = {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION ||
                         structure.structureType == STRUCTURE_SPAWN ||
-                        structure.structureType == STRUCTURE_STORAGE) && structure.energy < structure.energyCapacity;
+                        structure.structureType == STRUCTURE_TOWER) && structure.energy < structure.energyCapacity;
                 }
             });
 
@@ -30,6 +30,7 @@ var roleHarvester = {
                     // bugfix for when creeps get the order to refil base but are in the middle of building
                     creep.memory.building = false;
                     creep.memory.upgrading = false;
+                    creep.memory.repairing = false;
                 }
             }
 
