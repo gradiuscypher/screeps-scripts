@@ -16,6 +16,7 @@
 * TODO
 
 ### system.spawner
+* bug in the memory cleanup, seems to try to clean up spawning screeps
 * evaluate if a screep will die soon
 
 ## Important
