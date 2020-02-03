@@ -18,6 +18,7 @@
 ### system.spawner
 * bug in the memory cleanup, seems to try to clean up spawning screeps
 * evaluate if a screep will die soon
+* lets find a smart way to determine how much of each type of screep we need.
 
 ## Important
 
