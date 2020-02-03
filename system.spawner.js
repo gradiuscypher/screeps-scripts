@@ -3,6 +3,7 @@
 var systemSpawner = {
     run: function() {
         // Clean up the memory of dead screeps
+        // TODO: validate if the creep is spawning or not
         for(var name in Memory.creeps) {
             if (!Game.creeps[name]) {
                 delete Memory.creeps[name];
