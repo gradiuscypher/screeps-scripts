@@ -13,7 +13,7 @@
 * TODO
 
 ### role.upgrader
-* TODO
+* need to use upgraders to keep decaying buildings
 
 ### system.spawner
 * bug in the memory cleanup, seems to try to clean up spawning screeps
