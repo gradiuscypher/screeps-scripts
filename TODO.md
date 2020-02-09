@@ -1,29 +1,24 @@
-# TODO
-
-## Critical
-### generic
-* think about multi-room design
+# Backlog
+* dynamic decision of which energy to harvest from
+* harvester: implement storage usage
 * how to build roads that screeps will use
+* upgrader: need to use upgraders to keep decaying buildings
+* spawner: track how much resources are being produced per tick to see what we can keep up with, a bookkeeper of sorts
+* automated construction site, creeps can setup a construction site to have containers near it so that its easy to build new things
 
-### role.harvester
-* need to target more than one energy source, logically
-* need to be able to use more than one storage
+# To Do
+* think about multi-room design
+* dynamic creep task allocation
+* move filename format to "[alpha|beta|prod].<FUNCTION_GROUP>.<FUNCTION>.js" to make it easier to organize and use different versions of the files.
+  * eg: alpha.system.spawner.js
 
-### role.builder
-* TODO
+# In Progress
+* fixing the spawning system so it doesn't kill our base by not spawning things
+    * spawn screeps based on need and available memory
+* fixing the dead screeps in memory bug, currently prevents the requested spawn
 
-### role.upgrader
-* need to use upgraders to keep decaying buildings
+# Validate/On Hold
+* Filler
 
-### system.spawner
-* bug in the memory cleanup, seems to try to clean up spawning screeps
-* evaluate if a screep will die soon
-* lets find a smart way to determine how much of each type of screep we need.
-
-## Important
-
-## Helpful
-
-## For Fun
-
-# Known Bugs
+# Done/Abandoned
+* Filler
