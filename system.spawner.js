@@ -13,7 +13,7 @@ var systemSpawner = {
 
         // max count of what to build
         const MAX_HARVESTER = 2;
-        const MAX_BUILDER = 4;
+        const MAX_BUILDER = 0;
         const MAX_UPGRADER = 4;
 
         // recipes of how to build them
