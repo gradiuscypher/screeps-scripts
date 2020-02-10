@@ -1,5 +1,13 @@
 // manages what tasks each of the screeps should be working on
 
+// TODO IDEA:
+// Separate tasks into criticality levels: critical, high, medium, low, trivial
+// Determine which tasks can be completed and which ones can wait until the next available creep
+// Determine the number of creeps required per task, per level of criticality, and deploy based on those needs
+// Spawn more creeps based on minimum number of creeps or need
+// Include ability to raise criticality of tasks if they've been ignored too long, maybe measure need on a scale from 0 to 100
+
+
 var alphaSystemTasker = {
     run: function() {
         Memory.tasklist = new Array();
