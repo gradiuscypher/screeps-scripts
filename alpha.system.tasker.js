@@ -41,7 +41,7 @@ var alphaSystemTasker = {
         // test values
         // var spawnerEnergyPercent = 50;
         // var availableWorkerCount = 6;
-        console.log("spawnerEnergyPercent", spawnerEnergyPercent);
+        // console.log("spawnerEnergyPercent", spawnerEnergyPercent);
         if(spawnerEnergyPercent <= 25) {
             var spawnCount = Math.ceil(availableWorkerCount * .80);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
