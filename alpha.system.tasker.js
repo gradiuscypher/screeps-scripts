@@ -35,12 +35,13 @@ var alphaSystemTasker = {
 
         // does the spawner need more energy
         // TODO: Finish
-        var spawnerEnergyPercent = (Game.spawns['Spawn1'].energy / Game.spawns['Spawn1'].energyCapacity) * 100;
+        var room = _.filter(Game.structures, (structure) => structure.structureType == STRUCTURE_CONTROLLER)[0].room;
+        var spawnerEnergyPercent = (room.energyAvailable/room.energyCapacityAvailable) * 100;
 
         // test values
         // var spawnerEnergyPercent = 50;
         // var availableWorkerCount = 6;
-
+        console.log("spawnerEnergyPercent", spawnerEnergyPercent);
         if(spawnerEnergyPercent <= 25) {
             var spawnCount = Math.ceil(availableWorkerCount * .80);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
@@ -51,6 +52,10 @@ var alphaSystemTasker = {
         }
         else if(spawnerEnergyPercent <= 75) {
             var spawnCount = Math.ceil(availableWorkerCount * .25);
+            Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
+        }
+        else if(spawnerEnergyPercent < 100) {
+            var spawnCount = Math.ceil(availableWorkerCount * .10);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
         }
 
