@@ -65,6 +65,27 @@ var alphaSystemTasker = {
         // keeping infrastructure up (TODO)
         // do any structures (link, storage, towers, walls, roads) need repairs (less than a threshold)
 
+        // building unbuilt structures
+        var site_count = room.find(FIND_CONSTRUCTION_SITES).length;
+        if(site_count <= 0) {
+            // 0% allocation
+        }
+        if(site_count <= 2) {
+            // 25% allocation
+            var spawnCount = Math.ceil(availableWorkerCount * .25);
+            Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'build'));
+        }
+        if(site_count < 4) {
+            // 50% allocation
+            var spawnCount = Math.ceil(availableWorkerCount * .50);
+            Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'build'));
+        }
+        if(site_count >= 4) {
+            // 75% allocation
+            var spawnCount = Math.ceil(availableWorkerCount * .75);
+            Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'build'));
+        }
+
         // housekeeping tasks: split the remaining count of creeps on these tasks
         var remainingCreepCount = availableWorkerCount - Memory.tasklist.length;
         if(remainingCreepCount > 0) {
@@ -75,7 +96,7 @@ var alphaSystemTasker = {
         }
 
         if(Game.time % 2 == 0) {
-            // console.log(Memory.tasklist);
+            console.log(Memory.tasklist);
         }
         var workingCreeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'worker');
         // console.log(workingCreeps)
@@ -93,6 +114,9 @@ var alphaSystemTasker = {
             switch (targetTask) {
                 case 'spawnerEnergy':
                     roleHarvester.run(creep);
+                    break;
+                case 'build':
+                    roleBuilder.run(creep);
                     break;
                 case 'controllerUpgrade':
                     roleUpgrader.run(creep);

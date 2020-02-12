@@ -17,12 +17,12 @@ var systemSpawner = {
         const MAX_UPGRADER = 0;
 
         // recipes of how to build them
-        // const HARVESTER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
-        // const BUILDER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
-        // const UPGRADER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
-        const HARVESTER_BP = [WORK, CARRY, MOVE, MOVE];
-        const BUILDER_BP = [WORK, CARRY, MOVE, MOVE];
-        const UPGRADER_BP = [WORK, CARRY, MOVE, MOVE];
+        const HARVESTER_BP = [WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+        const BUILDER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
+        const UPGRADER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
+        // const HARVESTER_BP = [WORK, CARRY, MOVE, MOVE];
+        // const BUILDER_BP = [WORK, CARRY, MOVE, MOVE];
+        // const UPGRADER_BP = [WORK, CARRY, MOVE, MOVE];
 
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'worker');
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
@@ -40,7 +40,7 @@ var systemSpawner = {
         // console.log(cSiteCount);
 
         // start spawning units
-        if(room.energyAvailable >= 300) {
+        if(room.energyAvailable >= 800) {
             var timestamp = Game.time.toString();
             if(harvesters.length < MAX_HARVESTER) {
                 var creepname = 'w' + timestamp.substr(timestamp.length - 3)
