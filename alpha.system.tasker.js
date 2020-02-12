@@ -84,7 +84,7 @@ var alphaSystemTasker = {
 
             // otherwise, pick up a task off the list
             var targetTask = Memory.tasklist.shift();
-            console.log("targetTask:", targetTask);
+            // console.log("targetTask:", targetTask);
             switch (targetTask) {
                 case 'spawnerEnergy':
                     roleHarvester.run(creep);

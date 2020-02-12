@@ -12,9 +12,9 @@ var systemSpawner = {
         }
 
         // max count of what to build
-        const MAX_HARVESTER = 2;
+        const MAX_HARVESTER = 6;
         const MAX_BUILDER = 0;
-        const MAX_UPGRADER = 4;
+        const MAX_UPGRADER = 0;
 
         // recipes of how to build them
         // const HARVESTER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
@@ -24,7 +24,7 @@ var systemSpawner = {
         const BUILDER_BP = [WORK, CARRY, MOVE, MOVE];
         const UPGRADER_BP = [WORK, CARRY, MOVE, MOVE];
 
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'worker');
         var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
         var room = _.filter(Game.structures, (structure) => structure.structureType == STRUCTURE_CONTROLLER)[0].room;
@@ -43,8 +43,8 @@ var systemSpawner = {
         if(room.energyAvailable >= 300) {
             var timestamp = Game.time.toString();
             if(harvesters.length < MAX_HARVESTER) {
-                var creepname = 'h' + timestamp.substr(timestamp.length - 3)
-                Game.spawns['Spawn1'].spawnCreep(HARVESTER_BP, creepname, {memory: {role: 'harvester'}})
+                var creepname = 'w' + timestamp.substr(timestamp.length - 3)
+                Game.spawns['Spawn1'].spawnCreep(HARVESTER_BP, creepname, {memory: {role: 'worker'}})
             }
 
             if(builders.length < MAX_BUILDER) {
