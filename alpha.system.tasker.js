@@ -42,15 +42,15 @@ var alphaSystemTasker = {
         // var availableWorkerCount = 6;
 
         if(spawnerEnergyPercent <= 25) {
-            var spawnCount = Math.floor(availableWorkerCount * .80);
+            var spawnCount = Math.ceil(availableWorkerCount * .80);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
         }
         else if(spawnerEnergyPercent <= 50) {
-            var spawnCount = Math.floor(availableWorkerCount * .50);
+            var spawnCount = Math.ceil(availableWorkerCount * .50);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
         }
         else if(spawnerEnergyPercent <= 75) {
-            var spawnCount = Math.floor(availableWorkerCount * .25);
+            var spawnCount = Math.ceil(availableWorkerCount * .25);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'spawnerEnergy'));
         }
 
@@ -70,27 +70,30 @@ var alphaSystemTasker = {
         }
 
         if(Game.time % 2 == 0) {
-            console.log(Memory.tasklist);
+            // console.log(Memory.tasklist);
         }
+        var workingCreeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'worker');
+        // console.log(workingCreeps)
 
-        for(var name in Game.creeps) {
-            var creep = Game.creeps[name];
+        for(var name in workingCreeps) {
+            // var creep = Game.creeps[name];
+            var creep = workingCreeps[name]
             // if the creep is a specialist, do your special job
             // heavy miner
             // transporter
 
             // otherwise, pick up a task off the list
             var targetTask = Memory.tasklist.shift();
-
+            console.log("targetTask:", targetTask);
             switch (targetTask) {
                 case 'spawnerEnergy':
-                    // roleHarvester.run(creep);
+                    roleHarvester.run(creep);
                     break;
                 case 'controllerUpgrade':
-                    // roleUpgrader.run(creep);
+                    roleUpgrader.run(creep);
                     break;
                 case 'collectEnergy':
-                    // roleUpgrader.run(creep);
+                    roleUpgrader.run(creep);
                     break;
             }
 

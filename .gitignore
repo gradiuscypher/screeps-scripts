@@ -1,1 +1,3 @@
 ScreepsAutocomplete/
+node_modules/
+package-lock.json
