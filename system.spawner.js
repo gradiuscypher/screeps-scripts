@@ -20,7 +20,7 @@ var systemSpawner = {
         const HARVESTER_BP = [WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
         const BUILDER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
         const UPGRADER_BP = [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE];
-        // const HARVESTER_BP = [WORK, CARRY, MOVE, MOVE];
+        //const HARVESTER_BP = [WORK, CARRY, MOVE, MOVE];
         // const BUILDER_BP = [WORK, CARRY, MOVE, MOVE];
         // const UPGRADER_BP = [WORK, CARRY, MOVE, MOVE];
 
@@ -40,7 +40,7 @@ var systemSpawner = {
         // console.log(cSiteCount);
 
         // start spawning units
-        if(room.energyAvailable >= 800) {
+        if(room.energyAvailable >= 750) {
             var timestamp = Game.time.toString();
             if(harvesters.length < MAX_HARVESTER) {
                 var creepname = 'w' + timestamp.substr(timestamp.length - 3)

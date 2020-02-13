@@ -30,7 +30,7 @@ var alphaSystemTasker = {
         // does the room controller need upgrading to not expire
         var tickCount = _.filter(Game.structures, (structure) => structure.structureType == STRUCTURE_CONTROLLER)[0].ticksToDowngrade;
         if(tickCount <= MIN_CONTROLLER_TICKS) {
-            Memory.tasklist.push("controllerupgrade");
+            Memory.tasklist.push("controllerUpgrade");
         }
 
         // does the spawner need more energy
@@ -70,18 +70,21 @@ var alphaSystemTasker = {
         if(site_count <= 0) {
             // 0% allocation
         }
-        if(site_count <= 2) {
+        else if(0 < site_count <= 2) {
             // 25% allocation
             var spawnCount = Math.ceil(availableWorkerCount * .25);
+            console.log("2:", site_count)
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'build'));
         }
-        if(site_count < 4) {
+        else if(2 < site_count < 4) {
             // 50% allocation
             var spawnCount = Math.ceil(availableWorkerCount * .50);
+            console.log("4:", site_count)
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'build'));
         }
-        if(site_count >= 4) {
+        else if(site_count >= 4) {
             // 75% allocation
+            console.log(">4:", site_count)
             var spawnCount = Math.ceil(availableWorkerCount * .75);
             Memory.tasklist = Memory.tasklist.concat(Array.apply(null, Array(spawnCount)).map(_ => 'build'));
         }
